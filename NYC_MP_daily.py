@@ -8,7 +8,10 @@ plt.style.use('https://raw.githubusercontent.com/TDAmeritrade/stumpy/main/docs/s
 
 df = pd.read_csv("nyc_yellowcab_passenger_hourly_count.csv")
 df['pickup_datetime'] = pd.to_datetime(df['pickup_datetime'])
+
+
 df = df.set_index('pickup_datetime').sort_index()
+
 # taxi_df.columns = ['timestamp','value']
 # taxi_df=taxi_df.sort_values(by=['timestamp']).reset_index()
 # taxi_df['value'] = taxi_df['value'].astype(np.float64)
@@ -94,9 +97,9 @@ ax = df[key].plot(title='24 Hour Matrix Profile', figsize=(15,5))
 
 # df.iloc[profile['discords']][key].plot(kind='line', marker='*', c='black', markersize=8, ax=ax, lw=0)
 plt.text('2020-01-01', 2.5, '1', c='red',fontsize=12, weight='bold')
-plt.text('2020-01-21', 1.5, '2', c='red',fontsize=12, weight='bold')
-plt.text('2020-01-30', 2, '3', c='red',fontsize=12, weight='bold')
-plt.text('2020-03-07', 2.7, '4', c='red',fontsize=12, weight='bold')
+plt.text('2020-01-25', 1.5, '2', c='red',fontsize=12, weight='bold')
+plt.text('2020-02-01', 2, '3', c='red',fontsize=12, weight='bold')
+plt.text('2020-03-08', 2.7, '4', c='red',fontsize=12, weight='bold')
 plt.text('2020-10-31', 2.7, '5', c='red',fontsize=12, weight='bold')
 # plt.text('03-14-2018', 2.675, 'Daylight Savings Begin', c='black')
 plt.xlabel('Pickup Datetime')
