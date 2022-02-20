@@ -6,12 +6,15 @@ import matrixprofile as mp
 plt.style.use('https://raw.githubusercontent.com/TDAmeritrade/stumpy/main/docs/stumpy.mplstyle')
 
 
-df = pd.read_csv("nyc_yellowcab_passenger_hourly_count.csv")
+df = pd.read_csv(r"../nyc_yellowcab_passenger_hourly_count.csv")
 df['pickup_datetime'] = pd.to_datetime(df['pickup_datetime'])
 df['date'] = df['pickup_datetime'].dt.date
 
-
-
+ts = []
+for date1 in df['date'].unique():
+    temp = df[df['date']==date1]
+    ts.append(temp['passenger_count'].values)
+ts2 = np.array(ts)
 ###plot
 def plot_week(x,date_str):
     x = x[(x['date']>=date_str) & (x['date']<date_str+timedelta(days=14))]
